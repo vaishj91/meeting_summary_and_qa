@@ -91,7 +91,8 @@ Ensure your input file (e.g., ami_gpt35_multitask.jsonl) is in the project root.
 3. **Run the full fine-tuning + deployment pipeline**
 Save the script (you shared) as run_pipeline.sh, then run:
 
-```bash run_pipeline.sh
+```
+bash run_pipeline.sh
 ```
 
 4. **Use the Web UI**
