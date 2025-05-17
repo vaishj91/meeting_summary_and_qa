@@ -82,7 +82,7 @@ This project implements a multi-task NLP system that performs abstractive summar
 
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/yourusername/meeting-summarizer-qa.git
+   git clone https://github.com/vaishj91/meeting_summary_and_qa/tree/main
    cd meeting-summarizer-qa
 
 2. **Place your dataset**
