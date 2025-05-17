@@ -106,8 +106,8 @@ This project implements a multi-task NLP system that performs abstractive summar
    - Paste a raw meeting transcript
    - Ask a custom question about the content (optional)
    - Receive a summary and either:
-   -   5 auto-generated QA pairs
-   -   A direct answer to your question
+     1. 5 auto-generated QA pairs
+     2. A direct answer to your question
 
 ---
 
