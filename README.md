@@ -76,8 +76,6 @@ This project implements a multi-task NLP system that performs abstractive summar
 - NVIDIA GPU (recommended for training)
 - Bash terminal (for running shell script blocks)
 
----
-
 ### 🧩 Step-by-Step
 
 1. **Clone the repo**  
@@ -86,27 +84,38 @@ This project implements a multi-task NLP system that performs abstractive summar
    cd meeting-summarizer-qa
 
 2. **Place your dataset**
-Ensure your input file (e.g., ami_gpt35_multitask.jsonl) is in the project root. This file should contain a JSONL format with "input" and "output" keys.
+   Make sure the file `ami_gpt35_multitask.jsonl` exists in the project root.
+   This file should be in JSONL format with the following structure per line:
+   ```bash
+   {"input": "<meeting transcript>", "output": "<summary or QA content>"}
+   ```
 
-3. **Run the full fine-tuning + deployment pipeline**
-Save the script (you shared) as run_pipeline.sh, then run:
-
-```
-bash run_pipeline.sh
-```
+4. **Run fine-tuning and launch the app**
+   Rename the pipeline script if needed and execute:
+   ```bash
+   mv 03.sh run_pipeline.sh
+   bash run_pipeline.sh
+   ```
 
 4. **Use the Web UI**
-After training, a Gradio app will launch at:
-http://localhost:7860
-Paste a transcript, optionally type a question, and hit submit.
+   After training, a Gradio app will launch at:
+   ```bash
+   http://localhost:7860
+   ```
+   You can:
+   - Paste a raw meeting transcript
+   - Ask a custom question about the content (optional)
+   - Receive a summary and either:
+   -   5 auto-generated QA pairs
+   -   A direct answer to your question
 
 ---
 
 ## 📁 File Structure
 
 ```bash
-├── 01_dataset_generation.ipynb      # Generates synthetic summaries and QA pairs using GPT
-├── 03_training&eval.ipynb           # Trains and evaluates
-├── 02_fine-tuning&pipeline.ipynb    # Fine-tunes model, loads it, and launches Gradio interface [entrypoint]
-├── ami_with_summaries_and_qa.pkl    # Serialized multitask dataset (summaries + QA)
+├── 01_dataset_generation.ipynb        # Generates synthetic summaries and QA pairs using GPT
+├── 02_training_and_eval.ipynb         # Trains and evaluates
+├── 03_fine-tuning_and_gradio.ipynb    # Fine-tunes model, loads it, and launches Gradio interface [entrypoint]
+├── ami_gpt35_multitask.jsonl          # Serialized multitask dataset (summaries + QA)
 └── README.md
